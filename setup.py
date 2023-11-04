@@ -7,6 +7,7 @@ setup(
     version="0.1.0",
     url="https://github.com/setanarut/decompose",
     packages=find_packages(),
+    package_data={'decompose': ['model/*.pth']},
     description="Decompose image into layers",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
