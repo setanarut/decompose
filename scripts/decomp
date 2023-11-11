@@ -23,7 +23,7 @@ for i in range(len(images)):
 
 # save ora
 project.save(ora_path)
-print("ORA saved: " + str(path))
+print("ORA saved: " + str(ora_path))
 
 # save palette
 palette_to_image(palette).save(palette_path)
