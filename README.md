@@ -37,10 +37,25 @@ for layer in layers:
 You can write layers as [ORA](https://docs.krita.org/en/general_concepts/file_formats/file_ora.html) file
 
 ```python
-layers = decompose(img, manual_palette)
+from decompose.utils import images_to_ORA
+
 images_to_ORA(layers).save("img.ora")
 ```
 
+If palette is not given as an argument, a palette is created automatically. Colors can be selected manually.
+
+```python
+manual_palette = [
+    (255, 255, 255),
+    (3, 135, 3),
+    (3, 193, 160),
+    (1, 167, 255),
+    (255, 243, 0),
+    (193, 0, 0),
+    (3, 0, 2),
+]
+layers = decompose(img, manual_palette)
+```
 
 ## decomp command-line tool example
 
