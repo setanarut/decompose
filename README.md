@@ -3,9 +3,7 @@
 [Fast Soft Color Segmentation](https://github.com/pfnet-research/FSCS) without `Residue predictor`.
 [Paper PDF](https://arxiv.org/pdf/2004.08096.pdf)
 
-The model only supports 7 colors. The same color can be repeated for less color.
-
-![palette](./assets/palette.jpg)
+## Installation
 
 ```bash
 pip install git+https://github.com/setanarut/decompose 
@@ -36,6 +34,14 @@ for layer in layers:
 # <PIL.Image.Image image mode=RGBA size=904x368 at 0x114585C90>
 ```
 
+You can write layers as [ORA](https://docs.krita.org/en/general_concepts/file_formats/file_ora.html) file
+
+```python
+layers = decompose(img, manual_palette)
+images_to_ORA(layers).save("img.ora")
+```
+
+
 ## decomp command-line tool example
 
 Saves layers as ORA (Open Raster) file. It can be opened with Krita. Also saves the palette.
@@ -50,3 +56,9 @@ $ decomp ~/Desktop/img.png
 # 7
 # Palette saved: img_palette.png
 ```
+
+## Note
+
+The model only supports 7 colors. The same color can be repeated for less color.
+
+![palette](./assets/palette.jpg)
