@@ -1,0 +1,25 @@
+#!python3
+
+import sys
+from pathlib import Path
+import numpy as np
+from PIL import Image
+
+from decompose.utils import images_to_ORA, palette_to_image
+from decompose.decomposer import decompose
+from decompose.dominants import get_dominant_colors
+
+file_path = sys.argv[1]
+
+path = Path(file_path)
+palette_path = path.with_name(path.stem + ".png")
+path = path.with_name(path.stem + ".ora")
+
+im = Image.open(file_path)
+palette = get_dominant_colors(im, 7)
+
+project_ORA = images_to_ORA(decompose(im, palette))
+project_ORA.save(path)
+print("ORA saved: " + str(path))
+palette_to_image(palette).save(palette_path)
+print("Palette saved: " + str(palette_path))

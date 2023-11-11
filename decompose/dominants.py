@@ -199,7 +199,7 @@ def _list2tuple(l):
     return tlist
 
 
-def get_dominant_colors(img: Image.Image, num_colors: int):
+def get_dominant_colors(img: Image.Image, num_colors: int) -> list[tuple]:
     im_arr = np.asarray(img)
     if img.mode == "RGBA":
         im_arr = _rgba2rgb(im_arr)

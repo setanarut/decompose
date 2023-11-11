@@ -1,15 +1,27 @@
 import numpy as np
 from PIL import Image
+from pyora import Project
 
 
-def save_palette(palette: list[list[int]], image_path: str):
+def images_to_ORA(images) -> Project:
+    project = Project.new(*images[0].size)
+    for i in range(len(images)):
+        project.add_layer(images[i])
+    return project
+
+
+def palette_to_image(palette: list[list[int]]) -> Image.Image:
     palette_size = len(palette)
     print((palette_size))
     im = Image.new("RGB", (palette_size + 2, 3), (128, 128, 128))
     for i in range(palette_size):
         im.putpixel((i + 1, 1), tuple(palette[i]))
     im = im.resize((int(im.width * 32), int(im.height * 32)), Image.NEAREST)
-    im.save(image_path)
+    return im
+
+
+def save_palette(palette: list[list[int]], image_path: str):
+    palette_to_image(palette).save(image_path)
 
 
 def invert_RGB8(color: tuple[int]) -> tuple:
