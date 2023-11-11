@@ -12,6 +12,7 @@ pip install git+https://github.com/setanarut/decompose
 ```
 
 ## Example
+
 ```python
 
 from decompose.decomposer import decompose
@@ -35,4 +36,17 @@ for layer in layers:
 # <PIL.Image.Image image mode=RGBA size=904x368 at 0x114585C90>
 ```
 
-[def]: im
+## decomp command-line tool example
+
+Saves layers as ORA (Open Raster) file. It can be opened with Krita. Also saves the palette.
+
+```bash
+$ decomp ~/Desktop/img.png
+
+# Decomposer mask generation...
+# Decomposer processing alpha layers...
+# Decomposer Done!
+# ORA saved: img.ora
+# 7
+# Palette saved: img_palette.png
+```
