@@ -6,7 +6,7 @@ from pyora import Project
 def images_to_ORA(images) -> Project:
     project = Project.new(*images[0].size)
     for i in range(len(images)):
-        project.add_layer(images[i])
+        project.add_layer(images[i], "RGBA Layer " + str(i))
     return project
 
 
