@@ -1,5 +1,7 @@
 # Decompose
 
+> ! moved to -> https://codeberg.org/setanarut/decompose
+
 [Fast Soft Color Segmentation](https://github.com/pfnet-research/FSCS) without `Residue predictor`.
 [Paper PDF](https://arxiv.org/pdf/2004.08096.pdf)
 
